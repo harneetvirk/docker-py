@@ -16,7 +16,8 @@ requirements = [
 
 extras_require = {
     # win32 APIs if on Windows (required for npipe support)
-    ':sys_platform == "win32"': 'pywin32==227',
+    ':sys_platform == "win32" and python_version <= "3.9"': 'pypiwin32==227',
+    ':sys_platform == "win32" and python_version > "3.9"': 'pypiwin32',
 
     # If using docker-py over TLS, highly recommend this option is
     # pip-installed or pinned.
